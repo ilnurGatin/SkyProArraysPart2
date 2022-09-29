@@ -10,13 +10,12 @@ public class Main {
         System.out.println("Сумма трат за месяц составила "+ sum + " рублей");
 
         //task 2
-        int minSpending = 200_000;
-        int maxSpending = 100_000;
+        int minSpending = arr[0];
+        int maxSpending = arr[0];
         for (int current : arr) {
             if (current < minSpending) {
                 minSpending = current;
-            }
-            if (current > maxSpending) {
+            } else if (current > maxSpending) {
                 maxSpending = current;
             }
         }
@@ -24,14 +23,20 @@ public class Main {
         System.out.println("Максимальная сумма трат за день составила "+ maxSpending + " рублей.");
 
         // Task 3
-        double days = 30.0;
+        double days = arr.length;
         double average = sum / days;
         System.out.println("Средняя сумма трат за месяц составила " + average + " рублей.");
 
         //Task 4
         char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
-        for (int i = reverseFullName.length - 1; i > -1; i--) {
-            System.out.print(reverseFullName[i]);
+        for (int i = 0; i < reverseFullName.length / 2; i++) {
+            char tmp = reverseFullName[i];
+            reverseFullName[i] = reverseFullName[reverseFullName.length - i - 1];
+            reverseFullName[reverseFullName.length - i - 1] = tmp;
+        }
+
+        for (char c : reverseFullName) {
+            System.out.print(c);
         }
     }
 
